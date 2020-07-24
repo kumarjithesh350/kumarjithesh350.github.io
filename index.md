@@ -1,37 +1,56 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.div {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+}
+#hi{
+background-color: red;
+  width: 2px;
+  height: 2px;
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
 
-You can use the [editor on GitHub](https://github.com/kumarjithesh350/kumarjithesh350.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<div class="div" onmousemove="myFunction(event)" ></div>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<div class="div"  >
+<div id="hi" ></div>
+</div>
+<p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
 
-### Markdown
+<p>When the mouse is moved over the div, the p element will display the horizontal and vertical coordinates of your mouse pointer, whose values are returned from the clientX and clientY properties on the 
+MouseEvent object.</p>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<p id="demo"></p>
 
-```markdown
-Syntax highlighted code block
+<script>
+function myFunction(e) {
+  var x = e.clientX;
+  var y = e.clientY;
+  var coor = "Coordinates: (" + x + "," + y + ")";
+ 
+  move(x,y+100);
+  document.getElementById("demo").innerHTML = coor;
+}
+function move(x,y) {
+  var d=document.getElementById("hi");
+  d.style.position='absolute';
+  d.style.left=x+'px';
+  d.style.top=y+'px';
+  
+}
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+function clearCoor() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kumarjithesh350/kumarjithesh350.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</body>
+</html>
